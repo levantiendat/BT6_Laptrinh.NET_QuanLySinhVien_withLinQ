@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBSinhVien" Class="QLSVDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-6CLAM5L\TIENDAT_SQL;Initial Catalog=DBSinhVien;Integrated Security=True" SettingsObjectName="_102210247_LeVanTienDat.Properties.Settings" SettingsPropertyName="DBSinhVienConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LOPSINHHOAT" Member="LOPSINHHOATs">
+    <Type Name="LOPSINHHOAT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LOPSH" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="LOPSINHHOAT_SINHVIEN" Member="SINHVIENs" ThisKey="ID" OtherKey="MALOP" Type="SINHVIEN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SINHVIEN" Member="SINHVIENs">
+    <Type Name="SINHVIEN">
+      <Column Name="MSSV" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MALOP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DIEMTRUNGBINH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ANH" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HOCBA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CCCD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="LOPSINHHOAT_SINHVIEN" Member="LOPSINHHOAT" ThisKey="MALOP" OtherKey="ID" Type="LOPSINHHOAT" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
